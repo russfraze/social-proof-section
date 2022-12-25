@@ -13,70 +13,262 @@
 }
 
 
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
+    /*
+    1. Use a more-intuitive box-sizing model.
+    */
+    *, *::before, *::after {
     box-sizing: border-box;
-  }
-  /*
+    }
+    /*
     2. Remove default margin
-  */
-  * {
+    */
+    * {
     margin: 0;
-  }
-  /*
+    }
+    /*
     3. Allow percentage-based heights in the application
-  */
-  html, body {
+    */
+    html, body {
     height: 100%;
-  }
-  /*
+    }
+    /*
     Typographic tweaks!
     4. Add accessible line-height
     5. Improve text rendering
-  */
-  body {
+    */
+    body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-  }
-  /*
+    }
+    /*
     6. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
+    */
+    img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
-  }
-  /*
+    }
+    /*
     7. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
+    */
+    input, button, textarea, select {
     font: inherit;
-  }
-  /*
+    }
+    /*
     8. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
+    */
+    p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-  }
-  /*
+    }
+    /*
     9. Create a root stacking context
-  */
-  #root, #__next {
+    */
+    #root, #__next {
     isolation: isolate;
-  }
+    }
+
+ 
 
 
   /* general styling */
   body {
     font-family: var(--ff-base);
     font-weight: var(--ff-base);
-    font-size: 0.9375rem;
+    /* font-size: 0.9375rem; */
 
     background-color: var(--clr-white);
 
     display: grid;
-    place-content: center;
   }
 
+
+  .social-proof {
+      display: grid;
+      padding: 1.5rem;
+    }
+
+  .title-block__headline {
+      text-align: center;
+      font-size: 2.5rem;
+      letter-spacing: -0.08rem;
+      font-weight: var(--fw-black);
+      padding: 2rem;
+      line-height: 2rem;
+      color: var(--clr-very-dark-magenta);
+    }
+  .title-block__subhead {
+      text-align: center;
+      font-weight: var(--fw-bold);
+      color: var(--clr-dark-greyish-magenta);
+    }
+
+  .ratings {
+      display: grid;
+      gap: 1rem;
+      padding: 3rem 0;
+    }
+
+  .rating {
+      display: grid;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background-color: var(--clr-light-greyish-magenta);
+      border-radius: 0.5rem;
+    }
+
+  .rating__stars {
+      display: grid;
+      justify-content: center;
+      grid-auto-flow: column;
+      place-items:  center;
+      grid-template-columns: repeat(5, 25px);
+    }
+
+  .rating__headline {
+      color: var(--clr-very-dark-magenta);
+      font-weight: var(--fw-black);
+    }
+
+  .quotes {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .quote {
+      display: grid;
+      background-color: var(--clr-very-dark-magenta);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      gap: 1rem;
+      font-weight: var(--fw-black);
+    }
+
+  .quote__credit {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      /* grid-template-columns: 20% 80%; */
+      grid-template-columns: minmax(40px, max-content) 1fr;
+    }
+
+  .quote__credit img {
+      height: 40px;
+      border-radius: 20px;
+    }
+
+  .quote__credit--text {
+    padding-left: 15px;
+  }
+
+  .quote__text {
+    color: var(--clr-light-greyish-magenta);
+    font-weight: var(--fw-bold);
+    }
+
+  .quote__name {
+      color: var(--clr-light-greyish-magenta);
+      font-weight: var(--fw-black);
+    }
+
+  .quote__subhead {
+      color: var(--clr-soft-pink);
+    }
+
   
+
+@media (min-width: 800px){
+    main {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+    .social-proof {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        max-width: 1150px;
+        max-height: 750px
+    }
+
+    .title-block {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row: 1;
+      max-width: 38vw;
+
+    }
+
+    .title-block__headline {
+        text-align: left;
+        padding: 0;
+        font-size: 3rem;
+        max-width: 400px;
+        line-height: 2.5rem;
+    }
+
+    .title-block__subhead {
+        text-align: left;
+        position: relative;
+        top: 25px;
+        max-width: 400px;
+
+    }
+
+    .ratings {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        justify-items: flex-end;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .rating {
+        align-items: center;
+        justify-content: flex-start;
+        grid-template-columns: 2;
+        width: 85%;
+        gap: 2rem;
+    }
+
+    .rating:nth-child(1) {
+      position: relative;
+      right: 80px
+    }
+    .rating:nth-child(2) {
+      position: relative;
+      right: 40px
+    }
+
+    .rating__stars {
+        grid-column: 1;
+        padding: 0.5rem;
+    }
+
+    .rating__headline {
+        grid-column: 2;
+    }
+
+    .quotes {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        gap: 2rem;
+    }
+
+    #first{
+        grid-row: 2;
+        position: relative;
+        bottom: 60px;
+    }
+
+    #second {
+        grid-column: 2;
+        grid-row: 2;
+        position: relative;
+        bottom: 30px;
+    }
+
+    #third {
+        grid-column-start: 3;
+        grid-row: 2;
+    }
+}
