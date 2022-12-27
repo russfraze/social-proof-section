@@ -80,6 +80,13 @@
     display: grid;
   }
 
+  main {
+    padding: 2rem 0 6rem 0;
+    background-image: url('./images/bg-pattern-top-mobile.svg'), url('./images/bg-pattern-bottom-mobile.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
+  }
+
 
   .social-proof {
       display: grid;
@@ -91,7 +98,7 @@
       font-size: 2.5rem;
       letter-spacing: -0.08rem;
       font-weight: var(--fw-black);
-      padding: 2rem;
+      padding: 0.5em;
       line-height: 2rem;
       color: var(--clr-very-dark-magenta);
     }
@@ -181,6 +188,11 @@
         display: grid;
         align-items: center;
         justify-content: center;
+        padding: 0;
+
+        background-image: url('./images/bg-pattern-top-desktop.svg'), url('./images/bg-pattern-bottom-desktop.svg');
+        background-repeat: no-repeat, no-repeat;
+        background-position: top left, bottom right;
     }
     .social-proof {
         grid-template-columns: repeat(2, 1fr);
